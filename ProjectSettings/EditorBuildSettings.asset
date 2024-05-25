@@ -22,7 +22,7 @@ EditorBuildSettings:
     guid: 365c7cf16b8e0ca48b50b9c4758a0d6f
   - enabled: 1
     path: Assets/Scenes/Demo.unity
-    guid: b76e8b15a41dd4349b7a09eaeda95f7c
+    guid: 87735a18acd7165419f222ddf7c00e1c
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 06418b888425a404caf38b8d6722036b,
       type: 2}
