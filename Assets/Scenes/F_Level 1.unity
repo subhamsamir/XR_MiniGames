@@ -14507,7 +14507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1c6c3b3202d1346834786232a13000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remainingTime: 0
+  remainingTime: 2
   isTimeRunning: 0
   scoreSystem: {fileID: 2039692151}
   TimerTxt: {fileID: 2086618444}
@@ -14727,7 +14727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGlobal: 1
-  priority: 0
+  priority: 2
   blendDistance: 0
   weight: 0
   sharedProfile: {fileID: 11400000, guid: a74405b3d5e467141be34b5d1d42a294, type: 2}

@@ -32,7 +32,7 @@ public class F_CheckFruits : MonoBehaviour
     }
 
     // Call this method when the player gets hit
-    IEnumerator OnHit()
+    public IEnumerator OnHit()
     {
         volume.weight = 1.0f;
         yield return new WaitForSeconds(1);
@@ -49,13 +49,15 @@ public class F_CheckFruits : MonoBehaviour
             }
             if (other.gameObject.tag == "Mango")
             {
-                scoreSystem.WrongFruit(40,"Mango");
                 StartCoroutine(OnHit());
+
+                scoreSystem.WrongFruit(40,"Mango");
             }
             if(other.gameObject.tag == "Orange")
             {
-                scoreSystem.WrongFruit(60, "Orange");
                 StartCoroutine(OnHit());
+                scoreSystem.WrongFruit(60, "Orange");
+    
 
             }
         }
@@ -63,14 +65,16 @@ public class F_CheckFruits : MonoBehaviour
         {
             if (other.gameObject.tag == "Apple")
             {
-                scoreSystem.WrongFruit(40, "Apple");
                 StartCoroutine(OnHit());
+
+                scoreSystem.WrongFruit(40, "Apple");
 
             }
             if (other.gameObject.tag == "Mango")
             {
-                scoreSystem.WrongFruit(40, "Mango");
                 StartCoroutine(OnHit());
+
+                scoreSystem.WrongFruit(40, "Mango");
 
             }
             if (other.gameObject.tag == "Orange")
@@ -82,8 +86,10 @@ public class F_CheckFruits : MonoBehaviour
         {
             if (other.gameObject.tag == "Apple")
             {
-                scoreSystem.WrongFruit(40, "Apple");
                 StartCoroutine(OnHit());
+
+                scoreSystem.WrongFruit(40, "Apple");
+                Debug.Log("wrong");
 
             }
             if (other.gameObject.tag == "Mango")
@@ -92,8 +98,11 @@ public class F_CheckFruits : MonoBehaviour
             }
             if (other.gameObject.tag == "Orange")
             {
-                scoreSystem.WrongFruit(60, "Orange");
                 StartCoroutine(OnHit());
+
+                scoreSystem.WrongFruit(60, "Orange");
+                Debug.Log("wrong");
+
 
             }
         }
