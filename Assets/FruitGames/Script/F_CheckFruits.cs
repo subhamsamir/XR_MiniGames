@@ -50,12 +50,12 @@ public class F_CheckFruits : MonoBehaviour
             if (other.gameObject.tag == "Mango")
             {
                 scoreSystem.WrongFruit(40,"Mango");
-                OnHit();
+                StartCoroutine(OnHit());
             }
             if(other.gameObject.tag == "Orange")
             {
                 scoreSystem.WrongFruit(60, "Orange");
-                OnHit();
+                StartCoroutine(OnHit());
 
             }
         }
@@ -64,13 +64,13 @@ public class F_CheckFruits : MonoBehaviour
             if (other.gameObject.tag == "Apple")
             {
                 scoreSystem.WrongFruit(40, "Apple");
-                OnHit();
+                StartCoroutine(OnHit());
 
             }
             if (other.gameObject.tag == "Mango")
             {
                 scoreSystem.WrongFruit(40, "Mango");
-                OnHit();
+                StartCoroutine(OnHit());
 
             }
             if (other.gameObject.tag == "Orange")
@@ -83,7 +83,7 @@ public class F_CheckFruits : MonoBehaviour
             if (other.gameObject.tag == "Apple")
             {
                 scoreSystem.WrongFruit(40, "Apple");
-                OnHit();
+                StartCoroutine(OnHit());
 
             }
             if (other.gameObject.tag == "Mango")
@@ -93,7 +93,7 @@ public class F_CheckFruits : MonoBehaviour
             if (other.gameObject.tag == "Orange")
             {
                 scoreSystem.WrongFruit(60, "Orange");
-                OnHit();
+                StartCoroutine(OnHit());
 
             }
         }

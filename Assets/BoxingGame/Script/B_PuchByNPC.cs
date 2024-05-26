@@ -39,7 +39,7 @@ public class B_PuchByNPC : MonoBehaviour
             Debug.Log("hit by npc");
             HitAudio.Play();
             scoreSyem.RedScoreAdd();
-            OnHit();
+            StartCoroutine(OnHit());
         }
     }
 }
