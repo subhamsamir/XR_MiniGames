@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class StartGame : MonoBehaviour
@@ -8,6 +9,8 @@ public class StartGame : MonoBehaviour
 
     [SerializeField]
     R_OculusPlayerController oculusPlayerController;
+
+    public GameObject canvas;
     
 
 
@@ -26,6 +29,7 @@ public class StartGame : MonoBehaviour
         if (Right_H == true && Left_H == true)
         {
             Debug.Log("Final done");
+            Destroy(canvas);
             oculusPlayerController.StartPlayer(20.0f);
         }
     }
