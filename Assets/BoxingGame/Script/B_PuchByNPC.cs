@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.XR;
 
 public class B_PuchByNPC : MonoBehaviour
 {
@@ -12,10 +13,14 @@ public class B_PuchByNPC : MonoBehaviour
     [SerializeField]
     B_scoreSyem0 scoreSyem;
     public Volume volume;
+    private InputDevice leftHandDevice;
+    private InputDevice rightHandDevice;
 
     void Start()
     {
-        //volume.weight = 1.0f;
+        // Get the devices for left and right hand controllers
+        leftHandDevice = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
+        rightHandDevice = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
     }
 
     void Update()
@@ -40,6 +45,9 @@ public class B_PuchByNPC : MonoBehaviour
             HitAudio.Play();
             scoreSyem.RedScoreAdd();
             StartCoroutine(OnHit());
+            rightHandDevice.SendHapticImpulse(0, .5f, .5f);
+            leftHandDevice.SendHapticImpulse(0, .5f, .5f);
+
         }
     }
 }

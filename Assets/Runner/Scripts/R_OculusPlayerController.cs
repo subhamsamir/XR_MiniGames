@@ -26,11 +26,17 @@ public class R_OculusPlayerController : MonoBehaviour
     public R_SpawnManager spawnManager;
     private R_ScoringSystem scoringSystem;
 
+    private InputDevice leftHandDevice;
+    private InputDevice rightHandDevice;
+
     private void Start()
     {
         speed = 0f;
         scoringSystem = new R_ScoringSystem();
         characterController = GetComponent<CharacterController>();
+        // Get the devices for left and right hand controllers
+        leftHandDevice = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
+        rightHandDevice = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
     }
     private void Update()
     {
@@ -55,11 +61,15 @@ public class R_OculusPlayerController : MonoBehaviour
         {
             Debug.Log("Collid");
             spawnManager.spawnTriggerEntered();
+            rightHandDevice.SendHapticImpulse(0, .5f, .5f);
+            leftHandDevice.SendHapticImpulse(0, .5f, .5f);
         }
         if (other.gameObject.tag == "Box" && isCollied == false)
         {
             GameOver();
             isCollied = true;
+            rightHandDevice.SendHapticImpulse(0, .5f, .5f);
+            leftHandDevice.SendHapticImpulse(0, .5f, .5f);
         }
         if (other.gameObject.tag == "Coin")
         {
@@ -67,11 +77,15 @@ public class R_OculusPlayerController : MonoBehaviour
             scoringSystem.AddScore(1);
             CoinMusic.Play();
             Debug.Log("Coin");
+            rightHandDevice.SendHapticImpulse(0, .5f, .5f);
+            leftHandDevice.SendHapticImpulse(0, .5f, .5f);
         }
         //if (other.gameObject.tag == "SpawnTrigger")
         
         if(other.gameObject.tag == "resetGame")
         {
+            rightHandDevice.SendHapticImpulse(0, .5f, .5f);
+            leftHandDevice.SendHapticImpulse(0, .5f, .5f);
             ResetGame("R_Level 1");
         }
 

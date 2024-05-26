@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class B_PunchHit : MonoBehaviour
@@ -23,7 +24,15 @@ public class B_PunchHit : MonoBehaviour
     /// </summary>
 
     //[SerializeField] bool H_Left=false, H_Right=false;
+    private InputDevice leftHandDevice;
+    private InputDevice rightHandDevice;
 
+    void Start()
+    {
+        // Get the devices for left and right hand controllers
+        leftHandDevice = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
+        rightHandDevice = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
+    }
     private void Update()
     {
         
@@ -37,6 +46,7 @@ public class B_PunchHit : MonoBehaviour
             other.gameObject.SetActive(false);
             scoreSystem.AddScore();
             Audio.Play();
+            rightHandDevice.SendHapticImpulse(0, .5f, .5f);
         }
         if (L_hand== true && other.gameObject.tag == "blue")
         {
@@ -44,8 +54,10 @@ public class B_PunchHit : MonoBehaviour
             other.gameObject.SetActive(false);
             scoreSystem.AddScore();
             Audio.Play();
+            leftHandDevice.SendHapticImpulse(0, .5f, .5f);
+
         }
-        if( other.gameObject.tag == "Partical")
+        if ( other.gameObject.tag == "Partical")
         {
             other.gameObject.GetComponent<ParticleSystem>().Play();
         }
